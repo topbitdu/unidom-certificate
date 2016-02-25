@@ -12,4 +12,6 @@ class Unidom::Certificate::Certificating
   scope :certificated_is,  ->(certificated)  { where certificated:  certificated  }
   scope :certification_is, ->(certification) { where certification: certification }
 
+  include Unidom::Common::Concerns::ModelExtension
+
 end
