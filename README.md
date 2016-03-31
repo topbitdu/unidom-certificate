@@ -19,6 +19,7 @@ gem 'unidom-certificate'
 ```shell
 rake db:migrate
 ```
+The migration versions start with 200102.
 
 ## Call the Model
 ```ruby
