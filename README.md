@@ -26,5 +26,5 @@ The migration versions start with 200102.
 officer       = Person.create name: 'John'
 mall          = Shop.create   name: 'WalMart'
 certification = BusinessLicense.create number: '8888-6666'
-certificating = Unidom::Certificate::Certificating.certification_is(certification).certificated_is(mall).valid_at.alive.first_or_create certificator: officer, opened_at: Time.now
+certificating = Unidom::Certificate::Certificating.certificate(certification, mall, certificator: officer, opened_at: Time.now)
 ```

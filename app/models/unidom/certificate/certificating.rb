@@ -4,6 +4,8 @@ class Unidom::Certificate::Certificating
 
   self.table_name = 'unidom_certificatings'
 
+  include Unidom::Common::Concerns::ModelExtension
+
   belongs_to :certificator,  polymorphic: true
   belongs_to :certificated,  polymorphic: true
   belongs_to :certification, polymorphic: true
@@ -12,6 +14,10 @@ class Unidom::Certificate::Certificating
   scope :certificated_is,  ->(certificated)  { where certificated:  certificated  }
   scope :certification_is, ->(certification) { where certification: certification }
 
-  include Unidom::Common::Concerns::ModelExtension
+  def self.certificate(certification, certificated, certificator: nil, opened_at: Time.now)
+    self.certification_is(certification).certificated_is(certificated).valid_at.alive.first_or_create! opened_at: opened_at,
+      certificator_id:   (certificator.present? ? certificator.id         : Unidom::Common::NULL_UUID),
+      certificator_type: (certificator.present? ? certificator.class.name : '')
+  end
 
 end
