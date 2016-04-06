@@ -1,6 +1,6 @@
 # Certificating 是参与者和证书之间的认证关系。
 
-class Unidom::Certificate::Certificating
+class Unidom::Certificate::Certificating < ActiveRecord::Base
 
   self.table_name = 'unidom_certificatings'
 
