@@ -4,12 +4,12 @@
 1. Certificating model & migration
 
 ## v0.2
-1. Improved the Certificating model to include the Model Extension concern
+1. Improve the Certificating model to include the Model Extension concern
 
 ## v0.3
-1. Improved the Certificating model to add ::certificate method
-2. Improved the Ruby Gem Specification to depend on unidom-common v0.7
+1. Improve the Certificating model to add ::certificate method
+2. Improve the Ruby Gem Specification to depend on unidom-common v0.7
 
 ## v0.4
 1. 
-2. Improved the Ruby Gem Specification to depend on unidom-common v0.8
+2. Improve the Ruby Gem Specification to depend on unidom-common v0.9
