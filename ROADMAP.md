@@ -10,6 +10,6 @@
 1. Improve the Certificating model to add ::certificate method
 2. Improve the Ruby Gem Specification to depend on unidom-common v0.7
 
-## v0.4
-1. 
+## v1.0
+1. Improve the Certificating model to support the Keyword Argument
 2. Improve the Ruby Gem Specification to depend on unidom-common v0.9
