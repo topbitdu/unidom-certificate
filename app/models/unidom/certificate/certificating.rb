@@ -14,10 +14,15 @@ class Unidom::Certificate::Certificating < ActiveRecord::Base
   scope :certificated_is,  ->(certificated)  { where certificated:  certificated  }
   scope :certification_is, ->(certification) { where certification: certification }
 
-  def self.certificate(certification, certificated, certificator: nil, opened_at: Time.now)
+  def self.certificate(certification: nil, certificated: nil, certificator: nil, opened_at: Time.now)
+
+    raise ArgumentError.new('certification is required.') if certification.blank?
+    raise ArgumentError.new('certificated is required.')  if certificated.blank?
+
     self.certification_is(certification).certificated_is(certificated).valid_at.alive.first_or_create! opened_at: opened_at,
       certificator_id:   (certificator.present? ? certificator.id         : Unidom::Common::NULL_UUID),
       certificator_type: (certificator.present? ? certificator.class.name : '')
+
   end
 
 end
