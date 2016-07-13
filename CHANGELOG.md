@@ -9,3 +9,7 @@
 ## v0.3
 1. Improved the Certificating model to add ::certificate method
 2. Improved the Ruby Gem Specification to depend on unidom-common v0.7
+
+## v1.0
+1. Improved the Certificating model to support the Keyword Argument
+2. Improved the Ruby Gem Specification to depend on unidom-common v0.9
