@@ -23,8 +23,22 @@ The migration versions start with 200102.
 
 ## Call the Model
 ```ruby
-officer       = Person.create name: 'John'
-mall          = Shop.create   name: 'WalMart'
-certification = BusinessLicense.create number: '8888-6666'
-certificating = Unidom::Certificate::Certificating.certificate(certification: certification, certificated: mall, certificator: officer, opened_at: Time.now)
+officer       = Unidom::Party::Person.create! name: 'John'
+mall          = Unidom::Party::Shop.create!   name: 'WalMart'
+certification = Unidom::Certificate::China::BusinessLicense.registration_number_is('123456789012345').valid_at.alive.first_or_create! name: 'WalMart', address: 'Beijing', legal_representative_name: 'Tim' 
+certificating = Unidom::Certificate::Certificating.certificate!(certification: certification, certificated: mall, certificator: officer, opened_at: Time.now)
 ```
+
+## Include the Concerns
+```ruby
+include Unidom::Certificate::Concerns::AsCertificated
+include Unidom::Certificate::Concerns::AsCertification
+```
+
+### As Certificated concern
+The As Certificated concern do the following tasks for the includer automatically:
+1. Define the has_many :certificatings macro as: ``has_many :certificatings, class_name: 'Unidom::Certificate::Certificating', as: :certificated``
+
+### As Certification concern
+The As Certification concern do the following tasks for the includer automatically:
+1. Define the has_many :certificatings macro as: ``has_many :certificatings, class_name: 'Unidom::Certificate::Certificating', as: :certification``

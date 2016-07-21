@@ -13,3 +13,9 @@
 ## v1.0
 1. Improved the Certificating model to support the Keyword Argument
 2. Improved the Ruby Gem Specification to depend on unidom-common v0.9
+
+## v1.1
+1. As Certificated concern
+2. As Certification concern
+3. Improved the Certificating model to add the ::certificate! method
+4. Improved the Certificating model to deprecate the ::certificate method
