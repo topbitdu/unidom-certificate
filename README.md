@@ -38,7 +38,9 @@ include Unidom::Certificate::Concerns::AsCertification
 ### As Certificated concern
 The As Certificated concern do the following tasks for the includer automatically:
 1. Define the has_many :certificatings macro as: ``has_many :certificatings, class_name: 'Unidom::Certificate::Certificating', as: :certificated``
+2. Define the #is_certificated! method as: ``def is_certificated!(certification, by: nil, at: Time.now)``
 
 ### As Certification concern
 The As Certification concern do the following tasks for the includer automatically:
 1. Define the has_many :certificatings macro as: ``has_many :certificatings, class_name: 'Unidom::Certificate::Certificating', as: :certification``
+2. Define the #certificate! method as: ``def certificate!(certificated, by: nil, at: Time.now)``
