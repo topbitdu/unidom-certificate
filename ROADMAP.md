@@ -8,11 +8,11 @@
 
 ## v0.3
 1. Improve the Certificating model to add ::certificate method
-2. Improve the Ruby Gem Specification to depend on unidom-common v0.7
+2. Improve the Ruby Gem Specification to depend on [unidom-common](https://github.com/topbitdu/unidom-common) v0.7
 
 ## v1.0
 1. Improve the Certificating model to support the Keyword Arguments
-2. Improve the Ruby Gem Specification to depend on unidom-common v0.9
+2. Improve the Ruby Gem Specification to depend on [unidom-common](https://github.com/topbitdu/unidom-common) v0.9
 
 ## v1.1
 1. As Certificated concern
@@ -23,6 +23,13 @@
 ## v1.2
 1. Improve the As Certificated concern to add the #is_certificated! method
 2. Improve the As Certification concern to add the #certificate! method
+
+## v1.2.1
+1. Improve the Ruby Gem Specification to depend on [unidom-common](https://github.com/topbitdu/unidom-common) v1.0
+
+## v1.3
+1. Improve the As Certificated concern for argument validation
+2. Improve the As Certification concern for argument validation
 
 ## v2.0
 1. Remove the deprecated methods
