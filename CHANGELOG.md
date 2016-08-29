@@ -26,3 +26,7 @@
 
 ## v1.2.1
 1. Improved the Ruby Gem Specification to depend on [unidom-common](https://github.com/topbitdu/unidom-common) v1.0
+
+## v1.3
+1. Improved the As Certificated concern to add the #is_certificated? method
+2. Improved the As Certification concern to add the #certificate? method
