@@ -30,3 +30,8 @@
 ## v1.3
 1. Improved the As Certificated concern to add the #is_certificated? method
 2. Improved the As Certification concern to add the #certificate? method
+
+## v2.0
+1. Remove the deprecated methods
+2. Improve the As Certificated concern for the #is_certificated! method
+3. Improve the As Certification concern for the #certificate! method

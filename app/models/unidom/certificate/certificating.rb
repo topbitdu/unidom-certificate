@@ -14,9 +14,9 @@ class Unidom::Certificate::Certificating < ActiveRecord::Base
   scope :certificated_is,  ->(certificated)  { where certificated:  certificated  }
   scope :certification_is, ->(certification) { where certification: certification }
 
-  def self.certificate(certification: nil, certificated: nil, certificator: nil, opened_at: Time.now)
-    certificate! certification: certification, certificated: certificated, certificator: certificator, opened_at: opened_at
-  end
+  #def self.certificate(certification: nil, certificated: nil, certificator: nil, opened_at: Time.now)
+  #  certificate! certification: certification, certificated: certificated, certificator: certificator, opened_at: opened_at
+  #end
 
   def self.certificate!(certification: nil, certificated: nil, certificator: nil, opened_at: Time.now)
     raise ArgumentError.new('The certification argument is required.') if certification.blank?
@@ -30,11 +30,11 @@ class Unidom::Certificate::Certificating < ActiveRecord::Base
       attributes[:certificator_id]   = Unidom::Common::NULL_UUID
       attributes[:certificator_type] = ''
     end
-    self.certification_is(certification).certificated_is(certificated).valid_at.alive.first_or_create! attributes
+    self.certification_is(certification).certificated_is(certificated).valid_at(now: opened_at).alive.first_or_create! attributes
   end
 
-  class << self
-    deprecate certificate: :certificate!, deprecator: ActiveSupport::Deprecation.new('2.0', 'unidom-certificate')
-  end
+  #class << self
+  #  deprecate certificate: :certificate!, deprecator: ActiveSupport::Deprecation.new('2.0', 'unidom-certificate')
+  #end
 
 end

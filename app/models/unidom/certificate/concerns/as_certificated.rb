@@ -12,7 +12,7 @@ module Unidom::Certificate::Concerns::AsCertificated
       raise ArgumentError.new('The by argument is required.'           ) if by.blank?
       raise ArgumentError.new('The at argument is required.'           ) if at.blank?
 
-      certificatings.create! certification: certification, certificator: by, opened_at: at
+      certificatings.certification_is(certification).valid_at(now: at).alive.first_or_create! certificator: by, opened_at: at
 
     end
 
