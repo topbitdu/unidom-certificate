@@ -27,4 +27,7 @@ module Unidom::Certificate::Concerns::AsCertification
 
   end
 
+  module ClassMethods
+  end
+
 end
