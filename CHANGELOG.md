@@ -33,7 +33,7 @@
 
 ## v2.0
 1. Removed the deprecated methods
-2. Improve the As Certificated concern for the #is_certificated! method
+2. Improved the As Certificated concern for the #is_certificated! method
 3. Improve the As Certification concern for the #certificate! method
 
 ## v2.0.1
