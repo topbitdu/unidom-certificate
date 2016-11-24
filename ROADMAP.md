@@ -17,7 +17,7 @@
 ## v1.1
 1. As Certificated concern
 2. As Certification concern
-3. Improve the Certificating model to add the ::certificate! method
+3. Improve the Certificating model to add the .``certificate!`` method
 4. Improve the Certificating model to deprecate the ::certificate method
 
 ## v1.2
