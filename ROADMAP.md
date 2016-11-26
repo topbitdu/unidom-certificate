@@ -7,7 +7,7 @@
 1. Improve the Certificating model to include the Model Extension concern
 
 ## v0.3
-1. Improve the Certificating model to add ::certificate method
+1. Improve the Certificating model to add .``certificate`` method
 2. Improve the Ruby Gem Specification to depend on [unidom-common](https://github.com/topbitdu/unidom-common) v0.7
 
 ## v1.0
