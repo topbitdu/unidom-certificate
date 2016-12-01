@@ -18,7 +18,7 @@
 1. As Certificated concern
 2. As Certification concern
 3. Improve the Certificating model to add the .``certificate!`` method
-4. Improve the Certificating model to deprecate the ::certificate method
+4. Improve the Certificating model to deprecate the .``certificate`` method
 
 ## v1.2
 1. Improve the As Certificated concern to add the #is_certificated! method
