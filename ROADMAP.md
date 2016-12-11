@@ -22,7 +22,7 @@
 
 ## v1.2
 1. Improve the As Certificated concern to add the #``is_certificated!`` method
-2. Improve the As Certification concern to add the #certificate! method
+2. Improve the As Certification concern to add the #``certificate!`` method
 
 ## v1.2.1
 1. Improve the Ruby Gem Specification to depend on [unidom-common](https://github.com/topbitdu/unidom-common) v1.0
