@@ -29,7 +29,7 @@
 
 ## v1.3
 1. Improve the As Certificated concern to add the #``is_certificated?`` method
-2. Improve the As Certification concern to add the #certificate? method
+2. Improve the As Certification concern to add the #``certificate?`` method
 
 ## v2.0
 1. Remove the deprecated methods
