@@ -34,7 +34,7 @@
 ## v2.0
 1. Removed the deprecated methods
 2. Improved the As Certificated concern for the #``is_certificated!`` method
-3. Improved the As Certification concern for the #certificate! method
+3. Improved the As Certification concern for the #``certificate!`` method
 
 ## v2.0.1
 1. Improved the Ruby Gem Specification to depend on [unidom-common](https://github.com/topbitdu/unidom-common) v1.6
