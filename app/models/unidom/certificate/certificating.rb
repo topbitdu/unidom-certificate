@@ -1,3 +1,4 @@
+##
 # Certificating 是参与者和证书之间的认证关系。
 
 class Unidom::Certificate::Certificating < Unidom::Certificate::ApplicationRecord
