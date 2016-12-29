@@ -1,3 +1,6 @@
+##
+# As Certificated 是被认证参与者的领域关注点。
+
 module Unidom::Certificate::Concerns::AsCertificated
 
   extend ActiveSupport::Concern
