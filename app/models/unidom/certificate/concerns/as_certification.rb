@@ -1,3 +1,6 @@
+##
+# As Certification 是证书的领域关注点。
+
 module Unidom::Certificate::Concerns::AsCertification
 
   extend ActiveSupport::Concern
