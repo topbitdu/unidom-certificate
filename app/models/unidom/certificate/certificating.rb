@@ -15,6 +15,8 @@ class Unidom::Certificate::Certificating < Unidom::Certificate::ApplicationRecor
   scope :certificated_is,  ->(certificated)  { where certificated:  certificated  }
   scope :certification_is, ->(certification) { where certification: certification }
 
+  ##
+  # 由认证者 certificator 用证书 certification 去认证的人或者机构 certificated ，认证时间是： opened_at。
   def self.certificate!(certification: nil, certificated: nil, certificator: nil, opened_at: Time.now)
     raise ArgumentError.new('The certification argument is required.') if certification.blank?
     raise ArgumentError.new('The certificated argument is required.' ) if certificated.blank?
