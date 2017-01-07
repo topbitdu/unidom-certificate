@@ -9,6 +9,9 @@ module Unidom::Certificate::Concerns::AsCertification
 
     has_many :certificatings, class_name: 'Unidom::Certificate::Certificating', as: :certification
 
+    ##
+    # 用证书去认证参与者（被认证者）。 by 是认证者， at 是认证时间（缺省为当前时间）。
+    # 如：mcse.certificate! person, by: bill_gates, at: Time.now
     def certificate!(certificated, by: nil, at: Time.now)
 
       raise ArgumentError.new('The certificated argument is required.') if certificated.blank?
