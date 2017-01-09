@@ -22,6 +22,9 @@ module Unidom::Certificate::Concerns::AsCertificated
 
     end
 
+    ##
+    # 判断当前被认证者在指定的时间 at (缺省为当前时间)是否有指定的证书 certification 。如：
+    # person.is_certificated? mcse, at: Time.now
     def is_certificated?(certification, at: Time.now)
 
       raise ArgumentError.new('The certification argument is required.') if certification.blank?
