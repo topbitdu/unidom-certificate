@@ -1,6 +1,8 @@
 # Unidom Certificate 证书领域模型引擎
 
+[![Documentation](http://img.shields.io/badge/docs-rdoc.info-blue.svg)](http://www.rubydoc.info/gems/unidom-certificate/frames)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](http://opensource.org/licenses/MIT)
+
 [![Gem Version](https://badge.fury.io/rb/unidom-certificate.svg)](https://badge.fury.io/rb/unidom-certificate)
 [![Dependency Status](https://gemnasium.com/badges/github.com/topbitdu/unidom-certificate.svg)](https://gemnasium.com/github.com/topbitdu/unidom-certificate)
 
@@ -38,7 +40,7 @@ The migration versions start with 200102.
 ```ruby
 officer       = Unidom::Party::Person.create! name: 'John'
 mall          = Unidom::Party::Shop.create!   name: 'WalMart'
-certification = Unidom::Certificate::China::BusinessLicense.registration_number_is('123456789012345').valid_at.alive.first_or_create! name: 'WalMart', address: 'Beijing', legal_representative_name: 'Tim' 
+certification = Unidom::Certificate::China::BusinessLicense.registration_number_is('123456789012345').valid_at.alive.first_or_create! name: 'WalMart', address: 'Beijing', legal_representative_name: 'Tim'
 certificating = Unidom::Certificate::Certificating.certificate!(certification: certification, certificated: mall, certificator: officer, opened_at: Time.now)
 ```
 
@@ -54,13 +56,13 @@ include Unidom::Certificate::Concerns::AsCertification
 ### As Certificated concern
 
 The As Certificated concern do the following tasks for the includer automatically:
-1. Define the has_many :certificatings macro as: ``has_many :certificatings, class_name: 'Unidom::Certificate::Certificating', as: :certificated``  
-2. Define the #is_certificated! method as: ``def is_certificated!(certification, by: nil, at: Time.now)``  
+1. Define the has_many :certificatings macro as: ``has_many :certificatings, class_name: 'Unidom::Certificate::Certificating', as: :certificated``
+2. Define the #is_certificated! method as: ``def is_certificated!(certification, by: nil, at: Time.now)``
 3. Define the #is_certificated? method as: ``def is_certificated?(certification, at: Time.now)``
 
 ### As Certification concern
 
 The As Certification concern do the following tasks for the includer automatically:
-1. Define the has_many :certificatings macro as: ``has_many :certificatings, class_name: 'Unidom::Certificate::Certificating', as: :certification``  
-2. Define the #certificate! method as: ``def certificate!(certificated, by: nil, at: Time.now)``  
+1. Define the has_many :certificatings macro as: ``has_many :certificatings, class_name: 'Unidom::Certificate::Certificating', as: :certification``
+2. Define the #certificate! method as: ``def certificate!(certificated, by: nil, at: Time.now)``
 3. Define the #certificate? method as: ``def certificate?(certificated, at: Time.now)``
