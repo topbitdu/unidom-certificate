@@ -33,4 +33,4 @@ class Unidom::Certificate::Certificating < Unidom::Certificate::ApplicationRecor
     self.certification_is(certification).certificated_is(certificated).valid_at(now: opened_at).alive.first_or_create! attributes
   end
 
-end
+end unless Unidom::Common::Neglection.namespace_neglected? 'Unidom::Certificate::Certificating'
