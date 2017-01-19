@@ -22,6 +22,9 @@ module Unidom::Certificate::Concerns::AsCertification
 
     end
 
+    ##
+    # 判断当前认证书在指定的时间 at (缺省为当前时间)是否对被认证者 certificated 生效。如：
+    # mcse.certificated? person, at: Time.now
     def certificate?(certificated, at: Time.now)
 
       raise ArgumentError.new('The certificated argument is required.') if certificated.blank?
