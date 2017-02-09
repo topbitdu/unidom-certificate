@@ -19,8 +19,9 @@ class Unidom::Certificate::Certificating < Unidom::Certificate::ApplicationRecor
   # 由认证者 certificator 用证书 certification 去认证的人或者机构 certificated ，认证时间是： opened_at。
   def self.certificate!(certification: nil, certificated: nil, certificator: nil, opened_at: Time.now)
     assert_present! :certification, certification
+    assert_present! :certificated,  certificated
     #raise ArgumentError.new('The certification argument is required.') if certification.blank?
-    raise ArgumentError.new('The certificated argument is required.' ) if certificated.blank?
+    #raise ArgumentError.new('The certificated argument is required.' ) if certificated.blank?
     raise ArgumentError.new('The opened_at argument is required.'    ) if opened_at.blank?
 
     attributes = { opened_at: opened_at }
