@@ -21,9 +21,6 @@ class Unidom::Certificate::Certificating < Unidom::Certificate::ApplicationRecor
     assert_present! :certification, certification
     assert_present! :certificated,  certificated
     assert_present! :opened_at,     opened_at
-    #raise ArgumentError.new('The certification argument is required.') if certification.blank?
-    #raise ArgumentError.new('The certificated argument is required.' ) if certificated.blank?
-    #raise ArgumentError.new('The opened_at argument is required.'    ) if opened_at.blank?
 
     attributes = { opened_at: opened_at }
     if certificator.present?
