@@ -57,3 +57,8 @@
 1. Models RSpec examples manifest
 2. Types RSpec examples manifest
 3. Validators RSpec examples manifest
+
+## v2.1.1
+1. As Certificated shared examples
+2. As Certification shared examples
+3. RSpec shared examples manifest

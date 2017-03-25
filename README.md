@@ -87,6 +87,8 @@ end
 
 ## RSpec examples
 
+### RSpec example manifest (run automatically)
+
 ```ruby
 # spec/models/unidom_spec.rb
 require 'unidom/certificate/models_rspec'
@@ -96,4 +98,88 @@ require 'unidom/certificate/types_rspec'
 
 # spec/validators/unidom_spec.rb
 require 'unidom/certificate/validators_rspec'
+```
+
+### RSpec shared examples (to be integrated)
+
+```ruby
+# The Unidom::Certificate::China::BusinessLicense model, & the Unidom::Certificate::China::IdentityCard model already include the Unidom::Certificate::Concerns::AsCertification concern
+
+# app/models/your_certification.rb
+class YourCertification < ApplicationRecord
+
+  include Unidom::Common::Concerns::ModelExtension
+  include Unidom::Certificate::Concerns::AsCertification
+
+end
+
+# lib/unidom.rb
+def initialize_unidom
+
+  Unidom::Party::Company.class_eval do
+    include Unidom::Certificate::Concerns::AsCertificated
+  end
+
+  Unidom::Party::Person.class_eval do
+    include Unidom::Certificate::Concerns::AsCertificated
+  end
+
+  Unidom::Party::Shop.class_eval do
+    include Unidom::Certificate::Concerns::AsCertificated
+  end
+
+end
+
+# spec/rails_helper.rb
+require 'unidom'
+initialize_unidom
+
+# spec/support/unidom_rspec_shared_examples.rb
+require 'unidom/certificate/rspec_shared_examples'
+
+# spec/models/unidom/party/company_spec.rb
+describe Unidom::Party::Company, type: :model do
+
+  model_attribtues = {
+    name: 'Tesla'
+  }
+
+  it_behaves_like 'Unidom::Certificate::Concerns::AsCertificated', model_attribtues
+
+end
+
+# spec/models/unidom/party/person_spec.rb
+describe Unidom::Party::Person, type: :model do
+
+  model_attribtues = {
+    name: 'Tim'
+  }
+
+  it_behaves_like 'Unidom::Certificate::Concerns::AsCertificated', model_attribtues
+
+end
+
+# spec/models/unidom/party/shop_spec.rb
+describe Unidom::Party::Shop, type: :model do
+
+  model_attribtues = {
+    name: 'WalMart'
+  }
+
+  it_behaves_like 'Unidom::Certificate::Concerns::AsCertificated', model_attribtues
+
+end
+
+# spec/models/your_certification_spec.rb
+describe YourCertification, type: :model do
+
+  model_attribtues = {
+    name:          'Your Certification Name',
+    serial_number: '12345678',
+    issued_on:     '2020-01-01'
+  }
+
+  it_behaves_like 'Unidom::Certificate::Concerns::AsCertification', model_attribtues
+
+end
 ```
