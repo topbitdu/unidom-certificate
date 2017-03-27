@@ -62,3 +62,6 @@
 1. As Certificated shared examples
 2. As Certification shared examples
 3. RSpec shared examples manifest
+
+## v2.1.2
+1. Improve the As Certificated shared examples for the argument validations of the #is_certificated! method, & the #is_certificated? method
