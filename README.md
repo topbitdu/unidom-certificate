@@ -162,24 +162,45 @@ end
 # spec/models/unidom/party/shop_spec.rb
 describe Unidom::Party::Shop, type: :model do
 
-  model_attribtues = {
-    name: 'WalMart'
-  }
+  context do
 
-  it_behaves_like 'Unidom::Certificate::Concerns::AsCertificated', model_attribtues
+    model_attribtues = {
+      name: 'WalMart'
+    }
+
+    certification_attributes = {
+      unified_social_credit_identifier: '510105012345678911',
+      name:                             'Kaz',
+      address:                          'Beijing',
+      legal_representative_name:        'Tim'
+    }
+    certification = Unidom::Certificate::China::BusinessLicense.unified_social_credit_identifier_is(certification_attributes.delete :unified_social_credit_identifier).first_or_create! certification_attributes
+
+    certificator_attributes = {
+      name: 'Tim'
+    }
+    certificator = Unidom::Party::Person.create! certificator_attributes
+
+    it_behaves_like 'Unidom::Certificate::Concerns::AsCertificated', model_attribtues, certification, certificator
+
+  end
 
 end
 
 # spec/models/your_certification_spec.rb
 describe YourCertification, type: :model do
 
-  model_attribtues = {
-    name:          'Your Certification Name',
-    serial_number: '12345678',
-    issued_on:     '2020-01-01'
-  }
+  context do
 
-  it_behaves_like 'Unidom::Certificate::Concerns::AsCertification', model_attribtues
+    model_attribtues = {
+      name:          'Your Certification Name',
+      serial_number: '12345678',
+      issued_on:     '2020-01-01'
+    }
+
+    it_behaves_like 'Unidom::Certificate::Concerns::AsCertification', model_attribtues
+
+  end
 
 end
 ```
