@@ -64,4 +64,4 @@
 3. RSpec shared examples manifest
 
 ## v2.1.2
-1. Improve the As Certificated shared examples for the argument validations of the #is_certificated! method, & the #is_certificated? method
+1. Improved the As Certificated shared examples for the argument validations of the #is_certificated! method, & the #is_certificated? method
