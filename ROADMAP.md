@@ -65,3 +65,7 @@
 
 ## v2.1.2
 1. Improve the As Certificated shared examples for the argument validations of the #``is_certificated!`` method, & the #``is_certificated?`` method
+
+## v2.1.3
+1. Improve the As Certification concern for the argument validations of the #certificate! method, & the #certificate? method
+2. Improve the As Certification shared examples for the argument validations of the #certificate! method, & the #certificate? method
