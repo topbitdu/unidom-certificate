@@ -3,7 +3,7 @@
 
 module Unidom::Certificate::Concerns::AsCertification
 
-  extend ActiveSupport::Concern
+  extend  ActiveSupport::Concern
   include Unidom::Common::Concerns::ArgumentValidation
 
   included do |includer|
@@ -16,9 +16,8 @@ module Unidom::Certificate::Concerns::AsCertification
     def certificate!(certificated, by: nil, at: Time.now)
 
       assert_present! :certificated, certificated
-      #raise ArgumentError.new('The certificated argument is required.') if certificated.blank?
-      raise ArgumentError.new('The by argument is required.'          ) if by.blank?
-      raise ArgumentError.new('The at argument is required.'          ) if at.blank?
+      assert_present! :by,           by
+      assert_present! :at,           at
 
       certificatings.certificated_is(certificated).valid_at(now: at).alive.first_or_create! certificator: by, opened_at: at
 
@@ -29,8 +28,8 @@ module Unidom::Certificate::Concerns::AsCertification
     # mcse.certificated? person, at: Time.now
     def certificate?(certificated, at: Time.now)
 
-      raise ArgumentError.new('The certificated argument is required.') if certificated.blank?
-      raise ArgumentError.new('The at argument is required.'          ) if at.blank?
+      assert_present! :certificated, certificated
+      assert_present! :at,           at
 
       certificatings.certificated_is(certificated).valid_at(now: at).alive.exists?
 
